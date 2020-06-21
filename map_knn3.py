@@ -11,6 +11,7 @@ from datetime import timedelta
 from sklearn.cluster import KMeans
 import seaborn as sn
 import plotly.graph_objects as go
+import dash_table
 
 ##########################################################################
 ##########################################################################
@@ -98,7 +99,20 @@ fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 
 app = dash.Dash()
 app.layout = html.Div([
-    dcc.Graph(figure=fig)
+    dcc.Graph(figure=fig),
+            dash_table.DataTable(
+            id='datatable-interactivity',
+            columns=[
+                {"name": i, "id": i, "selectable": True} for i in X3.columns
+            ],
+            data=X3.to_dict('rows'),
+            sort_action="native",
+            sort_mode="multi",
+            page_action="native",
+            filter_action='native',
+            page_current= 0,
+            page_size= 10,
+            export_format='xlsx')
 ])
 
 app.run_server(debug=True, port=8040)  # Turn off reloader if inside Jupyter
