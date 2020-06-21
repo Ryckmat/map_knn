@@ -60,19 +60,19 @@ X2 = pd.DataFrame()
 X2["lon"]=df1["lon"]
 X2["lat"]=df1["lat"]
 X2["Deaths"]=df1["Deaths"]
-X2["Recovered"]=df1["Recovered"]
-X2["Severe"]=df1["Severe"]
-X2["Critical"]=df1["Critical"]
-X2["Confirmed"]=df1["Confirmed"]
-X2["Total"]=df1["Total"]
-X2["Under19"]=df1["Under19"]
-X2["Under39"]=df1["Under39"]
-X2["Under59"]=df1["Under59"]
-X2["Under74"]=df1["Under74"]
-X2["Over75"]=df1["Over75"]
-X2["Resuscitation"]=df1["Resuscitation"]
-X2["IntensiveCare"]=df1["IntensiveCare"]
-X2["TotalBeds"]=df1["TotalBeds"]
+# X2["Recovered"]=df1["Recovered"]
+# X2["Severe"]=df1["Severe"]
+# X2["Critical"]=df1["Critical"]
+# X2["Confirmed"]=df1["Confirmed"]
+# X2["Total"]=df1["Total"]
+# X2["Under19"]=df1["Under19"]
+# X2["Under39"]=df1["Under39"]
+# X2["Under59"]=df1["Under59"]
+# X2["Under74"]=df1["Under74"]
+# X2["Over75"]=df1["Over75"]
+# X2["Resuscitation"]=df1["Resuscitation"]
+# X2["IntensiveCare"]=df1["IntensiveCare"]
+# X2["TotalBeds"]=df1["TotalBeds"]
 X2["date"]=df1["date"]
 X2["Province/State"]=df1["Province/State"]
 X2["date"]= X2["date"].apply(lambda x: x.strftime('%Y-%m-%d'))
@@ -81,10 +81,10 @@ X3 = X2.sort_values(by='date')
 ##########################################################################
 ##########################################################################
 kmeans = KMeans(n_clusters = 3, init ='k-means++')
-kmeans.fit(X3[X2.columns[0:7]]) # Compute k-means clustering.
-X3['cluster_label'] = kmeans.fit_predict(X2[X2.columns[0:7]])
+kmeans.fit(X3[X2.columns[0:3]]) # Compute k-means clustering.
+X3['cluster_label'] = kmeans.fit_predict(X3[X2.columns[0:3]])
 centers = kmeans.cluster_centers_ # Coordinates of cluster centers.
-labels = kmeans.predict(X3[X2.columns[0:7]]) # Labels of each point
+labels = kmeans.predict(X3[X2.columns[0:3]]) # Labels of each point
 
 
 

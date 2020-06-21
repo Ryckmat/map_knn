@@ -53,10 +53,10 @@ df1 = df1.drop(DeserializableColumns, axis=1)
 
 df1= df1.drop(['geometry', 'Emergencies', 'MedicalTests','MedicalActs'], axis=1)
 df1["Confirmed"].fillna(0.0, inplace = True)
-df1["Deaths"].fillna(0.0, inplace = True) 
-df1["Recovered"].fillna(0.0, inplace = True) 
-df1["Severe"].fillna(0.0, inplace = True) 
-df1["Critical"].fillna(0.0, inplace = True) 
+df1["Deaths"].fillna(0.0, inplace = True)
+df1["Recovered"].fillna(0.0, inplace = True)
+df1["Severe"].fillna(0.0, inplace = True)
+df1["Critical"].fillna(0.0, inplace = True)
 
 
 
@@ -72,9 +72,9 @@ X2["Total"]=df1["Total"]
 X2["Under19"]=df1["Under19"]
 X2["Under39"]=df1["Under39"]
 X2["Under59"]=df1["Under59"]
-X2["Under74"]=df1["Under74"]	
-X2["Over75"]=df1["Over75"]	
-X2["Resuscitation"]=df1["Resuscitation"]	
+X2["Under74"]=df1["Under74"]
+X2["Over75"]=df1["Over75"]
+X2["Resuscitation"]=df1["Resuscitation"]
 X2["IntensiveCare"]=df1["IntensiveCare"]
 X2["TotalBeds"]=df1["TotalBeds"]
 X2["date"]=df1["date"]
