@@ -99,20 +99,28 @@ fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 
 app = dash.Dash()
 app.layout = html.Div([
+    html.H1(children='Dashboard COVID-19',style={
+            'textAlign': 'center'}),
+    html.H4(children='Lien vers le chat bot'),
+    html.A(html.Button('Chat bot COVID-19', className='three columns'),
+    href='https://chat-bot-covid19.herokuapp.com/#/'),
+    #html.Iframe(src="https://chat-bot-covid19.herokuapp.com/#/"),
+    html.H4(children='Carte des clusters en fonction du nombre de mort'),
     dcc.Graph(figure=fig),
-            dash_table.DataTable(
-            id='datatable-interactivity',
-            columns=[
-                {"name": i, "id": i, "selectable": True} for i in X3.columns
-            ],
-            data=X3.to_dict('rows'),
-            sort_action="native",
-            sort_mode="multi",
-            page_action="native",
-            filter_action='native',
-            page_current= 0,
-            page_size= 10,
-            export_format='xlsx')
+    html.H4(children='Tableau des données des analyses'),
+    dash_table.DataTable(
+    id='datatable-interactivity',
+    columns=[
+        {"name": i, "id": i, "selectable": True} for i in X3.columns
+    ],
+    data=X3.to_dict('rows'),
+    sort_action="native",
+    sort_mode="multi",
+    page_action="native",
+    filter_action='native',
+    page_current= 0,
+    page_size= 10,
+    export_format='xlsx')
 ])
 
 app.run_server(debug=True, port=8040)  # Turn off reloader if inside Jupyter
