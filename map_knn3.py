@@ -93,7 +93,7 @@ labels = kmeans.predict(X3[X2.columns[0:3]]) # Labels of each point
 ##########################################################################
 fig = go.Figure()
 fig = px.scatter_mapbox(X3, lat="lat", lon="lon",
-                        color="cluster_label", zoom=3, size="Deaths",animation_frame="date", hover_name="Province/State")
+                        color="cluster_label", zoom=3, size="Deaths",animation_frame="date",  height=500,hover_name="Province/State")
 fig.update_layout(mapbox_style="stamen-terrain")
 fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 
@@ -104,7 +104,8 @@ app.layout = html.Div([
     html.H4(children='Lien vers le chat bot'),
     html.A(html.Button('Chat bot COVID-19', className='three columns'),
     href='https://chat-bot-covid19.herokuapp.com/#/'),
-    #html.Iframe(src="https://chat-bot-covid19.herokuapp.com/#/"),
+    html.H4(children='Chat Bot'),
+    html.Iframe(src="https://chat-bot-covid19.herokuapp.com/#/", height=500, width="100%"),
     html.H4(children='Carte des clusters en fonction du nombre de mort'),
     dcc.Graph(figure=fig),
     html.H4(children='Tableau des données des analyses'),
