@@ -1,0 +1,9 @@
+geopadans
+dash
+sklearn
+pandas
+matplotlib
+plotly
+datetime
+seaborn
+dash_table
