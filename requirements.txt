@@ -1,4 +1,4 @@
-geopadans
+geopandas
 dash
 sklearn
 pandas
