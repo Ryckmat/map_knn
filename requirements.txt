@@ -7,3 +7,4 @@ plotly
 datetime
 seaborn
 dash_table
+freeze
